@@ -8,6 +8,6 @@ public interface UsuarioBusiness {
 
     boolean isSenhaValida(String senha);
 
-    void salvarUserToken(UsuarioToken usuarioToken) throws Exception;
+    void salvarUserToken(UsuarioToken usuarioToken);
 
 }

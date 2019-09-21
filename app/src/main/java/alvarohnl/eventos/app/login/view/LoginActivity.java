@@ -1,11 +1,11 @@
 package alvarohnl.eventos.app.login.view;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import alvarohnl.eventos.app.R;
 import alvarohnl.eventos.app.login.data.model.UsuarioToken;
