@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">eventos-app</string>
+    <string name="app_name">Eventos</string>
+    <string name="usuario">Usuário</string>
+    <string name="senha">Senha</string>
+    <string name="acessar">Acessar</string>
 </resources>
