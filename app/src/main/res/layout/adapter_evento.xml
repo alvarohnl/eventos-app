@@ -13,7 +13,7 @@
         android:padding="8dp">
 
         <ImageView
-            android:id="@+id/imageEvent"
+            android:id="@+id/imageEvento"
             android:layout_width="wrap_content"
             android:layout_height="140dp"
             android:layout_gravity="center_horizontal"
@@ -26,18 +26,17 @@
 
 
         <TextView
-            android:id="@+id/textTitle"
+            android:id="@+id/textTitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:text="Churrasco social em prol da Apae"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textDescription"
+            android:id="@+id/textDescricao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -46,7 +45,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/textDate"
+            android:id="@+id/textData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
