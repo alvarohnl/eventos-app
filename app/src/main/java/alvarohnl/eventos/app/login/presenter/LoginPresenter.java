@@ -29,6 +29,7 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     @Override
     public void login(final String usuario, String senha) {
+
         LoginService service = RetrofitClient.getRetrofitInstance().create(LoginService.class);
 
         UsuarioRequest usuarioRequest = new UsuarioRequest(usuario, senha);
@@ -38,6 +39,7 @@ public class LoginPresenter implements LoginContract.Presenter {
             @Override
             public void onResponse(Call<UsuarioToken> call, Response<UsuarioToken> response) {
 
+                view.loginSucesso(null);
                 if (response.isSuccessful()) {
 
                     UsuarioToken usuarioToken = response.body();
