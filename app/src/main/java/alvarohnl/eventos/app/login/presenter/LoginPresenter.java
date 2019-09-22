@@ -39,7 +39,6 @@ public class LoginPresenter implements LoginContract.Presenter {
             @Override
             public void onResponse(Call<UsuarioToken> call, Response<UsuarioToken> response) {
 
-                view.loginSucesso(null);
                 if (response.isSuccessful()) {
 
                     UsuarioToken usuarioToken = response.body();

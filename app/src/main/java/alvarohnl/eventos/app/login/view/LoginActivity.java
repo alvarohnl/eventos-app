@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
         @Override
         public void run() {
-            
+
             Intent i = new Intent(EventosApplication.getInstance().getApplicationContext(), LoginActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);
