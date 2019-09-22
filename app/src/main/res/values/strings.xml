@@ -4,4 +4,8 @@
     <string name="senha">Senha</string>
     <string name="acessar">Acessar</string>
     <string name="usuario_token">usuario_token</string>
+    <string name="usuario_obrigatorio">O usuário não pode ser vazio</string>
+    <string name="usuario_pattern">Não é permitido caracteres especiais</string>
+    <string name="senha_obrigatorio">A senha não pode ser vazia</string>
+    <string name="senha_minima">A senha deve conter somente números e no mínimo 6 caracteres</string>
 </resources>

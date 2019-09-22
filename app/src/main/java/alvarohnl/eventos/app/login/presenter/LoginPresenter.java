@@ -36,13 +36,14 @@ public class LoginPresenter implements LoginContract.Presenter {
         Call<UsuarioToken> call = service.login(usuarioRequest);
 
         call.enqueue(new Callback<UsuarioToken>() {
+
             @Override
             public void onResponse(Call<UsuarioToken> call, Response<UsuarioToken> response) {
 
                 if (response.isSuccessful()) {
 
                     UsuarioToken usuarioToken = response.body();
-                    userBusiness.salvarUserToken(usuarioToken);
+                    userBusiness.salvarUsuarioToken(usuarioToken);
                     view.loginSucesso(usuarioToken);
 
                 }
@@ -53,6 +54,7 @@ public class LoginPresenter implements LoginContract.Presenter {
             public void onFailure(Call<UsuarioToken> call, Throwable t) {
                 Log.e("E", t.getLocalizedMessage(), t);
             }
+
         });
 
     }
