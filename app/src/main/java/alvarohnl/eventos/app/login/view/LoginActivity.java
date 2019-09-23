@@ -1,5 +1,6 @@
 package alvarohnl.eventos.app.login.view;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
-import com.mobsandgeeks.saripaar.annotation.Or;
+import com.mobsandgeeks.saripaar.annotation.Order;
 import com.mobsandgeeks.saripaar.annotation.Password;
 import com.mobsandgeeks.saripaar.annotation.Pattern;
 
@@ -32,15 +33,15 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     private Validator validator;
     private LoginContract.Presenter mPresenter;
     private Button botaoAcessar;
+    ProgressDialog loadingDialog;
 
     @NotEmpty(messageResId = R.string.usuario_obrigatorio)
-    @Or
     @Pattern(regex = "[A-Za-z0-9.]+", messageResId = R.string.usuario_pattern)
     private EditText editUsuario;
 
     @NotEmpty(messageResId = R.string.senha_obrigatorio)
-    @Or
     @Password(min = 6, scheme = Password.Scheme.NUMERIC, messageResId = R.string.senha_minima)
+    @Order(1)
     private EditText editSenha;
 
     @Override
@@ -69,10 +70,9 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     @Override
     public void loginSucesso(UsuarioToken usuarioToken) {
 
-        Timer timer = new Timer();
-        LogOutTimerTask logoutTimeTask = new LogOutTimerTask();
+        criarLogOutTask(usuarioToken.getTempoExpirar() * 60000);
 
-        timer.schedule(logoutTimeTask, Long.valueOf(usuarioToken.getTempoExpirar()) * 1000);
+        loadingDialog.dismiss();
 
         Intent intent = new Intent(this, EventosActivity.class);
         startActivity(intent);
@@ -81,6 +81,8 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     @Override
     public void onValidationSucceeded() {
+
+        exibirLoading();
 
         String email = editUsuario.getText().toString();
         String senha = editSenha.getText().toString();
@@ -109,8 +111,27 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     private void initComponents() {
 
         editUsuario = findViewById(R.id.editUsuario);
+        editUsuario.requestFocus();
         editSenha = findViewById(R.id.editSenha);
         botaoAcessar = findViewById(R.id.acessarButton);
+
+    }
+
+    private void exibirLoading() {
+
+        loadingDialog = new ProgressDialog(LoginActivity.this);
+        loadingDialog.setMessage(this.getResources().getString(R.string.careggando));
+        loadingDialog.setIndeterminate(false);
+        loadingDialog.setCancelable(false);
+        loadingDialog.show();
+
+    }
+
+    private void criarLogOutTask(Long tempo) {
+
+        Timer timer = new Timer();
+        LogOutTimerTask logoutTimeTask = new LogOutTimerTask();
+        timer.schedule(logoutTimeTask, tempo);
 
     }
 

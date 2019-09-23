@@ -3,7 +3,7 @@ package alvarohnl.eventos.app.login.data.model;
 public class UsuarioToken {
 
     private String token;
-    private String tempoExpirar;
+    private Long tempoExpirar;
 
     public String getToken() {
         return token;
@@ -13,11 +13,11 @@ public class UsuarioToken {
         this.token = token;
     }
 
-    public String getTempoExpirar() {
+    public Long getTempoExpirar() {
         return tempoExpirar;
     }
 
-    public void setTempoExpirar(String tempoExpirar) {
+    public void setTempoExpirar(Long tempoExpirar) {
         this.tempoExpirar = tempoExpirar;
     }
 

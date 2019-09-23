@@ -8,4 +8,5 @@
     <string name="usuario_pattern">Não é permitido caracteres especiais</string>
     <string name="senha_obrigatorio">A senha não pode ser vazia</string>
     <string name="senha_minima">A senha deve conter somente números e no mínimo 6 caracteres</string>
+    <string name="careggando">Carregando ...</string>
 </resources>
