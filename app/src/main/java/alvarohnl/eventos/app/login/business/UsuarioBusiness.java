@@ -6,4 +6,6 @@ public interface UsuarioBusiness {
 
     void salvarUsuarioToken(UsuarioToken usuarioToken);
 
+    void removerUsuarioToken();
+
 }

@@ -142,6 +142,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
             Intent i = new Intent(EventosApplication.getInstance().getApplicationContext(), LoginActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            mPresenter.logout();
             startActivity(i);
             finish();
 

@@ -34,4 +34,26 @@ public class UsuarioBusinessImpl implements UsuarioBusiness {
 
     }
 
+    @Override
+    public void removerUsuarioToken() {
+
+        Context context = EventosApplication.getInstance();
+
+        SharedPreferences sharedPreferences = context.getSharedPreferences(
+                context.getString(R.string.app_name), Context.MODE_PRIVATE);
+
+        try {
+
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.remove(context.getString(R.string.usuario_token));
+            editor.commit();
+
+        } catch (Exception e) {
+
+            Log.e("E", "Erro ao remover UsuarioToken no SharedPreferences", e);
+
+        }
+
+    }
+
 }
