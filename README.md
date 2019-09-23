@@ -3,7 +3,7 @@
 App de eventos composto por uma tela de login e listagem dos eventos.
 
 ####  Rodar o projeto:
-Para rodar este projeto basa importar o projeto utilizando o "Import Project no Android Studio.
+Para rodar o projeto basta importar o projeto utilizando o "Import Project no Android Studio.
   
 #### Bibliotecas utilizadas:  
 - [retrofit2](https://github.com/square/retrofit) (cliente HTTP)  
