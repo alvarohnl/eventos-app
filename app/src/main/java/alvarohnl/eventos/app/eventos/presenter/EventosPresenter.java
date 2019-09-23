@@ -3,6 +3,7 @@ package alvarohnl.eventos.app.eventos.presenter;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import alvarohnl.eventos.app.config.RetrofitClient;
@@ -39,6 +40,7 @@ public class EventosPresenter implements EventosContract.Presenter {
 
                     EventoResponse evento = response.body();
                     List<Evento> eventos = evento.getEventos();
+                    Collections.sort(eventos);
 
                     view.exibirEventos(eventos);
 

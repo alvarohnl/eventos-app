@@ -1,6 +1,6 @@
 package alvarohnl.eventos.app.eventos.data.model;
 
-public class Evento {
+public class Evento implements Comparable<Evento> {
 
     private Long id;
     private String nome;
@@ -46,6 +46,11 @@ public class Evento {
 
     public void setData(Long data) {
         this.data = data;
+    }
+
+    @Override
+    public int compareTo(Evento evento) {
+        return this.data > evento.data ? 1 : this.data < evento.data ? -1 : 0;
     }
 
 }
